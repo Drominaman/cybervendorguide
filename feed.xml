@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"><channel>
+  <title>CyberVendorGuide</title>
+  <link>https://drominaman.github.io/cybervendorguide/</link>
+  <description>Research notes for cybersecurity buyers.</description>
+  <language>en</language>
+  <item>
+    <title>Best SBOM Tools in 2026: 10 Options by Use Case</title>
+    <link>https://drominaman.github.io/cybervendorguide/posts/best-sbom-tools-2026.html</link>
+    <guid isPermaLink="true">https://drominaman.github.io/cybervendorguide/posts/best-sbom-tools-2026.html</guid>
+    <pubDate>Mon, 12 Oct 2026 15:00:00 GMT</pubDate>
+    <description>Compare 10 SBOM tools for generation, management, validation and vulnerability monitoring. Find the right option for DevOps, security, compliance and embedded products.</description>
+  </item>
+  <item>
+    <title>How to evaluate a cybersecurity vendor</title>
+    <link>https://drominaman.github.io/cybervendorguide/posts/how-to-evaluate-a-cybersecurity-vendor.html</link>
+    <guid isPermaLink="true">https://drominaman.github.io/cybervendorguide/posts/how-to-evaluate-a-cybersecurity-vendor.html</guid>
+    <pubDate>Mon, 12 Oct 2026 12:00:00 GMT</pubDate>
+    <description>A practical framework for choosing security products that solve the problems you actually have.</description>
+  </item>
+</channel></rss>
