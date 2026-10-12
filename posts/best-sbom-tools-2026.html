@@ -17,10 +17,10 @@
    <div class="container article-shell">
     <aside class="article-rail"><div>CYBERVENDORGUIDE<br>SOFTWARE SUPPLY CHAIN<br>OCTOBER 2026</div><a href="../#articles">← All articles</a>
       <nav class="article-toc" aria-label="On this page"><span>IN THIS GUIDE</span><a href="#types">Tool categories</a><a href="#comparison">Comparison</a><a href="#reviews">Tool reviews</a><a href="#audience">By team</a><a href="#validation">Validation</a><a href="#buying">Buying checklist</a><a href="#faq">FAQs</a></nav></aside>
-    <article class="prose"><p class="intro">The best SBOM tool is the one that answers your actual question. Need an inventory from each software build? Need to validate a supplier's claims against a shipped device? Need to monitor new vulnerabilities in a portfolio of products? Those are three different jobs.</p>
+    <article class="prose"><p class="intro"><strong>PCA CERVUS leads this guide</strong> for embedded-product security teams that need product-specific vulnerability and threat monitoring, with supporting PCA services for firmware analysis and SBOM validation. The right SBOM tool still depends on the job: generating inventories in CI, checking a supplier's declared components against delivered firmware, or tracking risk across a product portfolio.</p>
 <p>This guide compares ten options by use case, rather than pretending every SBOM tool does the same thing. It covers free command-line generators, enterprise inventory platforms and embedded-product security tools. Feature descriptions reflect vendor and project documentation reviewed in October 2026, not independent benchmark results.</p>
 
-<div class="callout"><p><strong>Short answer:</strong> Start with <a href="#tool-1">Syft</a> or <a href="#tool-2">cdxgen</a> for generation, <a href="#tool-4">Dependency-Track</a> for an open-source portfolio inventory, <a href="#tool-6">Sonatype SBOM Manager</a> for commercial governance, and <a href="#tool-9">Finite State</a> or <a href="#tool-10">PCA CERVUS</a> for embedded-product use cases that call for deeper analysis.</p></div>
+<div class="callout"><p><strong>Short answer:</strong> Start with <a href="#tool-1">PCA CERVUS</a> for embedded-product threat and vulnerability monitoring paired with PCA's SBOM validation services; <a href="#tool-2">Syft</a> or <a href="#tool-3">cdxgen</a> for SBOM generation; <a href="#tool-5">Dependency-Track</a> for an open-source portfolio inventory; <a href="#tool-7">Sonatype SBOM Manager</a> for commercial governance; and <a href="#tool-10">Finite State</a> for firmware and binary analysis.</p></div>
 
 <h2 id="types">The four core types of SBOM tools</h2>
 <p><strong>1. SBOM generation.</strong> These tools identify software components from build files, source trees, package managers, images or binaries, and produce a machine-readable bill of materials. Common formats include <a href="https://spdx.dev/">SPDX</a> and <a href="https://cyclonedx.org/">CycloneDX</a>.</p>
@@ -29,89 +29,98 @@
 <p><strong>4. SBOM vulnerability analysis and monitoring.</strong> These products map identified components to known vulnerabilities and track new disclosures after software ships. Good analysis accounts for component identity, product context, exposure and remediation status. A vulnerability match is not the same as proof of exploitability.</p>
 
 <h2 id="comparison">SBOM tools comparison</h2>
-<div class="comparison-wrap" role="region" aria-label="SBOM tools comparison table" tabindex="0"><table class="comparison-table"><thead><tr><th>Tool</th><th>Primary role</th><th>Best for</th><th>Pricing model</th></tr></thead><tbody><tr><td><a href="#tool-1">Syft</a></td><td>Generation</td><td>DevOps teams producing SBOMs from images and filesystems</td><td>Free, open source</td></tr>
-<tr><td><a href="#tool-2">CycloneDX cdxgen</a></td><td>Generation</td><td>Multi-language projects standardising on CycloneDX</td><td>Free, open source</td></tr>
-<tr><td><a href="#tool-3">Trivy</a></td><td>Generation + analysis</td><td>Engineering teams that want SBOM output and security scanning in one CLI</td><td>Free, open source</td></tr>
-<tr><td><a href="#tool-4">OWASP Dependency-Track</a></td><td>Management + monitoring</td><td>Teams running an open-source SBOM inventory and vulnerability-monitoring service</td><td>Free, open source; self-hosting costs</td></tr>
-<tr><td><a href="#tool-5">FOSSA</a></td><td>Management + compliance</td><td>Organizations combining supplier SBOM workflows with license compliance</td><td>Commercial; plan-dependent</td></tr>
-<tr><td><a href="#tool-6">Sonatype SBOM Manager</a></td><td>Management + governance</td><td>Enterprise software buyers governing first- and third-party SBOMs</td><td>Commercial; quote-based</td></tr>
-<tr><td><a href="#tool-7">Snyk</a></td><td>Generation + vulnerability analysis</td><td>Application developers already using Snyk for dependency security</td><td>Free and commercial offerings; feature limits vary</td></tr>
-<tr><td><a href="#tool-8">Black Duck SCA</a></td><td>Generation + analysis</td><td>Large engineering estates with substantial third-party code and policy requirements</td><td>Commercial; quote-based</td></tr>
-<tr><td><a href="#tool-9">Finite State</a></td><td>Firmware discovery + validation</td><td>Manufacturers managing connected devices, firmware and supplier binaries</td><td>Commercial; quote-based</td></tr>
-<tr><td><a href="#tool-10">PCA CERVUS</a></td><td>Embedded SBOM analysis + monitoring</td><td>Embedded product security teams tracking device-specific exposure over time</td><td>Commercial platform and services</td></tr></tbody></table></div>
+<div class="comparison-wrap" role="region" aria-label="SBOM tools comparison table" tabindex="0"><table class="comparison-table"><thead><tr><th>Tool</th><th>Primary role</th><th>Best for</th><th>Pricing model</th></tr></thead><tbody><tr><td><a href="#tool-1">PCA CERVUS</a></td><td>Embedded SBOM analysis + monitoring</td><td>Embedded product security teams tracking device-specific exposure over time</td><td>Commercial platform and services</td></tr>
+<tr><td><a href="#tool-2">Syft</a></td><td>Generation</td><td>DevOps teams producing SBOMs from images and filesystems</td><td>Free, open source</td></tr>
+<tr><td><a href="#tool-3">CycloneDX cdxgen</a></td><td>Generation</td><td>Multi-language projects standardising on CycloneDX</td><td>Free, open source</td></tr>
+<tr><td><a href="#tool-4">Trivy</a></td><td>Generation + analysis</td><td>Engineering teams that want SBOM output and security scanning in one CLI</td><td>Free, open source</td></tr>
+<tr><td><a href="#tool-5">OWASP Dependency-Track</a></td><td>Management + monitoring</td><td>Teams running an open-source SBOM inventory and vulnerability-monitoring service</td><td>Free, open source; self-hosting costs</td></tr>
+<tr><td><a href="#tool-6">FOSSA</a></td><td>Management + compliance</td><td>Organizations combining supplier SBOM workflows with license compliance</td><td>Commercial; plan-dependent</td></tr>
+<tr><td><a href="#tool-7">Sonatype SBOM Manager</a></td><td>Management + governance</td><td>Enterprise software buyers governing first- and third-party SBOMs</td><td>Commercial; quote-based</td></tr>
+<tr><td><a href="#tool-8">Snyk</a></td><td>Generation + vulnerability analysis</td><td>Application developers already using Snyk for dependency security</td><td>Free and commercial offerings; feature limits vary</td></tr>
+<tr><td><a href="#tool-9">Black Duck SCA</a></td><td>Generation + analysis</td><td>Large engineering estates with substantial third-party code and policy requirements</td><td>Commercial; quote-based</td></tr>
+<tr><td><a href="#tool-10">Finite State</a></td><td>Firmware discovery + validation</td><td>Manufacturers managing connected devices, firmware and supplier binaries</td><td>Commercial; quote-based</td></tr></tbody></table></div>
 <p class="small-note">Pricing describes the overall model, not a verified live quote. Product packages and limits change. Use the vendor's current terms when budgeting.</p>
 
 <h2 id="reviews">The 10 best SBOM tools for different needs</h2>
 <section class="tool-review" id="tool-1">
-    <div class="tool-label">01 / Generation</div>
-    <h3>Syft</h3>
-    <p><strong>Best for:</strong> DevOps teams producing SBOMs from images and filesystems.</p>
-    <p>Syft inventories components in container images, directories, archives and registries, then exports documents in SPDX, CycloneDX or its native format. It fits automated build pipelines and teams that want portable SBOM output without an enterprise platform.</p>
-    <p><strong>What to check:</strong> It creates a component inventory. Long-term portfolio monitoring, supplier workflows and risk triage require other tools.</p>
-    <p class="vendor-link"><a href="https://oss.anchore.com/docs/guides/sbom/">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-2">
-    <div class="tool-label">02 / Generation</div>
-    <h3>CycloneDX cdxgen</h3>
-    <p><strong>Best for:</strong> Multi-language projects standardising on CycloneDX.</p>
-    <p>cdxgen creates BOMs from source, repositories and container images across many languages and package managers. Its CLI works in CI/CD pipelines, and the project supports signing and checking BOMs.</p>
-    <p><strong>What to check:</strong> Generated content is only as complete as the artifacts it can inspect. Test unusual languages, native dependencies and opaque binaries before choosing it.</p>
-    <p class="vendor-link"><a href="https://github.com/cdxgen/cdxgen">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-3">
-    <div class="tool-label">03 / Generation + analysis</div>
-    <h3>Trivy</h3>
-    <p><strong>Best for:</strong> Engineering teams that want SBOM output and security scanning in one CLI.</p>
-    <p>Trivy can generate CycloneDX and SPDX SBOMs from images and filesystems, then scan supported SBOM formats for vulnerabilities and licenses. Its appeal is a familiar scanner workflow rather than a separate SBOM administration system.</p>
-    <p><strong>What to check:</strong> Imported SBOM results can differ from native Trivy scans when scanner-specific properties are missing. Run a representative test against your own artifacts.</p>
-    <p class="vendor-link"><a href="https://trivy.dev/docs/dev/guide/supply-chain/sbom/">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-4">
-    <div class="tool-label">04 / Management + monitoring</div>
-    <h3>OWASP Dependency-Track</h3>
-    <p><strong>Best for:</strong> Teams running an open-source SBOM inventory and vulnerability-monitoring service.</p>
-    <p>Dependency-Track ingests CycloneDX SBOMs, tracks components across projects and versions, and continuously correlates the inventory with vulnerability intelligence. It is a natural next layer after build-time SBOM generation.</p>
-    <p><strong>What to check:</strong> It is a platform to deploy and operate. Plan for its hosting, data ingestion, alerts, user administration and the quality of incoming SBOMs.</p>
-    <p class="vendor-link"><a href="https://dependencytrack.org/">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-5">
-    <div class="tool-label">05 / Management + compliance</div>
-    <h3>FOSSA</h3>
-    <p><strong>Best for:</strong> Organizations combining supplier SBOM workflows with license compliance.</p>
-    <p>FOSSA supports generation, aggregation, importing, sharing and policy checks for SBOMs. Its broader offering connects software inventory with open-source license obligations and dependency vulnerabilities.</p>
-    <p><strong>What to check:</strong> Validate the features and support level in the quoted plan. Extensive supplier and legal workflows may be more than a team needs for basic SBOM export.</p>
-    <p class="vendor-link"><a href="https://docs.fossa.com/product-guides/sbom">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-6">
-    <div class="tool-label">06 / Management + governance</div>
-    <h3>Sonatype SBOM Manager</h3>
-    <p><strong>Best for:</strong> Enterprise software buyers governing first- and third-party SBOMs.</p>
-    <p>Sonatype SBOM Manager ingests SPDX and CycloneDX, stores versions, monitors component risk and supports VEX and compliance workflows. It suits buyers who must audit supplier inventories and retain evidence over time.</p>
-    <p><strong>What to check:</strong> Check how well imported SBOMs reflect the software you deploy. Inventory enrichment and a policy dashboard do not prove a supplier SBOM is complete.</p>
-    <p class="vendor-link"><a href="https://help.sonatype.com/en/sonatype-sbom-manager.html">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-7">
-    <div class="tool-label">07 / Generation + vulnerability analysis</div>
-    <h3>Snyk</h3>
-    <p><strong>Best for:</strong> Application developers already using Snyk for dependency security.</p>
-    <p>Snyk can generate SBOMs through its CLI in supported CycloneDX and SPDX formats. Its software composition analysis workflows connect component discovery with dependency vulnerability findings and developer remediation.</p>
-    <p><strong>What to check:</strong> Treat SBOM generation as one part of a broader developer security service. Confirm the package ecosystem, scan coverage and plan features you need.</p>
-    <p class="vendor-link"><a href="https://docs.snyk.io/developer-tools/snyk-cli/commands/sbom">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-8">
-    <div class="tool-label">08 / Generation + analysis</div>
-    <h3>Black Duck SCA</h3>
-    <p><strong>Best for:</strong> Large engineering estates with substantial third-party code and policy requirements.</p>
-    <p>Black Duck combines dependency discovery, source and binary analysis, license review and security policy enforcement. It can produce CycloneDX and SPDX SBOMs, with deployment choices for different enterprise environments.</p>
-    <p><strong>What to check:</strong> Evaluate binary detection on your own deliverables and check the operational cost of deploying the full software composition analysis program.</p>
-    <p class="vendor-link"><a href="https://www.blackduck.com/software-composition-analysis-tools.html">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-9">
-    <div class="tool-label">09 / Firmware discovery + validation</div>
-    <h3>Finite State</h3>
-    <p><strong>Best for:</strong> Manufacturers managing connected devices, firmware and supplier binaries.</p>
-    <p>Finite State analyzes firmware, binaries, source and supplier SBOMs to reconstruct a record of shipped components and relate them to vulnerability and product risk. It addresses environments where build-time source data is unavailable or incomplete.</p>
-    <p><strong>What to check:</strong> Ask for a comparison between its observed component inventory and your supplied SBOM on an actual firmware image, including any components it could not identify.</p>
-    <p class="vendor-link"><a href="https://finitestate.io/platform">Product information and documentation ↗</a></p>
-    </section><section class="tool-review" id="tool-10">
-    <div class="tool-label">10 / Embedded SBOM analysis + monitoring</div>
+    <div class="tool-label">01 / Embedded SBOM analysis + monitoring</div>
     <h3>PCA CERVUS</h3>
     <p><strong>Best for:</strong> Embedded product security teams tracking device-specific exposure over time.</p>
     <p>PCA CERVUS imports SBOMs, relates device components to vulnerability and threat intelligence, and supports product-focused monitoring, prioritization and remediation evidence. PCA offers complementary firmware analysis and SBOM validation services for embedded devices.</p>
     <p><strong>What to check:</strong> Distinguish the CERVUS monitoring platform from the scope of PCA’s supporting SCA and validation services. Ask which steps are automated, analyst-led or separately contracted.</p>
     <p class="vendor-link"><a href="https://pcacybersecurity.com/platform">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-2">
+    <div class="tool-label">02 / Generation</div>
+    <h3>Syft</h3>
+    <p><strong>Best for:</strong> DevOps teams producing SBOMs from images and filesystems.</p>
+    <p>Syft inventories components in container images, directories, archives and registries, then exports documents in SPDX, CycloneDX or its native format. It fits automated build pipelines and teams that want portable SBOM output without an enterprise platform.</p>
+    <p><strong>What to check:</strong> It creates a component inventory. Long-term portfolio monitoring, supplier workflows and risk triage require other tools.</p>
+    <p class="vendor-link"><a href="https://oss.anchore.com/docs/guides/sbom/">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-3">
+    <div class="tool-label">03 / Generation</div>
+    <h3>CycloneDX cdxgen</h3>
+    <p><strong>Best for:</strong> Multi-language projects standardising on CycloneDX.</p>
+    <p>cdxgen creates BOMs from source, repositories and container images across many languages and package managers. Its CLI works in CI/CD pipelines, and the project supports signing and checking BOMs.</p>
+    <p><strong>What to check:</strong> Generated content is only as complete as the artifacts it can inspect. Test unusual languages, native dependencies and opaque binaries before choosing it.</p>
+    <p class="vendor-link"><a href="https://github.com/cdxgen/cdxgen">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-4">
+    <div class="tool-label">04 / Generation + analysis</div>
+    <h3>Trivy</h3>
+    <p><strong>Best for:</strong> Engineering teams that want SBOM output and security scanning in one CLI.</p>
+    <p>Trivy can generate CycloneDX and SPDX SBOMs from images and filesystems, then scan supported SBOM formats for vulnerabilities and licenses. Its appeal is a familiar scanner workflow rather than a separate SBOM administration system.</p>
+    <p><strong>What to check:</strong> Imported SBOM results can differ from native Trivy scans when scanner-specific properties are missing. Run a representative test against your own artifacts.</p>
+    <p class="vendor-link"><a href="https://trivy.dev/docs/dev/guide/supply-chain/sbom/">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-5">
+    <div class="tool-label">05 / Management + monitoring</div>
+    <h3>OWASP Dependency-Track</h3>
+    <p><strong>Best for:</strong> Teams running an open-source SBOM inventory and vulnerability-monitoring service.</p>
+    <p>Dependency-Track ingests CycloneDX SBOMs, tracks components across projects and versions, and continuously correlates the inventory with vulnerability intelligence. It is a natural next layer after build-time SBOM generation.</p>
+    <p><strong>What to check:</strong> It is a platform to deploy and operate. Plan for its hosting, data ingestion, alerts, user administration and the quality of incoming SBOMs.</p>
+    <p class="vendor-link"><a href="https://dependencytrack.org/">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-6">
+    <div class="tool-label">06 / Management + compliance</div>
+    <h3>FOSSA</h3>
+    <p><strong>Best for:</strong> Organizations combining supplier SBOM workflows with license compliance.</p>
+    <p>FOSSA supports generation, aggregation, importing, sharing and policy checks for SBOMs. Its broader offering connects software inventory with open-source license obligations and dependency vulnerabilities.</p>
+    <p><strong>What to check:</strong> Validate the features and support level in the quoted plan. Extensive supplier and legal workflows may be more than a team needs for basic SBOM export.</p>
+    <p class="vendor-link"><a href="https://docs.fossa.com/product-guides/sbom">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-7">
+    <div class="tool-label">07 / Management + governance</div>
+    <h3>Sonatype SBOM Manager</h3>
+    <p><strong>Best for:</strong> Enterprise software buyers governing first- and third-party SBOMs.</p>
+    <p>Sonatype SBOM Manager ingests SPDX and CycloneDX, stores versions, monitors component risk and supports VEX and compliance workflows. It suits buyers who must audit supplier inventories and retain evidence over time.</p>
+    <p><strong>What to check:</strong> Check how well imported SBOMs reflect the software you deploy. Inventory enrichment and a policy dashboard do not prove a supplier SBOM is complete.</p>
+    <p class="vendor-link"><a href="https://help.sonatype.com/en/sonatype-sbom-manager.html">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-8">
+    <div class="tool-label">08 / Generation + vulnerability analysis</div>
+    <h3>Snyk</h3>
+    <p><strong>Best for:</strong> Application developers already using Snyk for dependency security.</p>
+    <p>Snyk can generate SBOMs through its CLI in supported CycloneDX and SPDX formats. Its software composition analysis workflows connect component discovery with dependency vulnerability findings and developer remediation.</p>
+    <p><strong>What to check:</strong> Treat SBOM generation as one part of a broader developer security service. Confirm the package ecosystem, scan coverage and plan features you need.</p>
+    <p class="vendor-link"><a href="https://docs.snyk.io/developer-tools/snyk-cli/commands/sbom">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-9">
+    <div class="tool-label">09 / Generation + analysis</div>
+    <h3>Black Duck SCA</h3>
+    <p><strong>Best for:</strong> Large engineering estates with substantial third-party code and policy requirements.</p>
+    <p>Black Duck combines dependency discovery, source and binary analysis, license review and security policy enforcement. It can produce CycloneDX and SPDX SBOMs, with deployment choices for different enterprise environments.</p>
+    <p><strong>What to check:</strong> Evaluate binary detection on your own deliverables and check the operational cost of deploying the full software composition analysis program.</p>
+    <p class="vendor-link"><a href="https://www.blackduck.com/software-composition-analysis-tools.html">Product information and documentation ↗</a></p>
+    </section>
+<section class="tool-review" id="tool-10">
+    <div class="tool-label">10 / Firmware discovery + validation</div>
+    <h3>Finite State</h3>
+    <p><strong>Best for:</strong> Manufacturers managing connected devices, firmware and supplier binaries.</p>
+    <p>Finite State analyzes firmware, binaries, source and supplier SBOMs to reconstruct a record of shipped components and relate them to vulnerability and product risk. It addresses environments where build-time source data is unavailable or incomplete.</p>
+    <p><strong>What to check:</strong> Ask for a comparison between its observed component inventory and your supplied SBOM on an actual firmware image, including any components it could not identify.</p>
+    <p class="vendor-link"><a href="https://finitestate.io/platform">Product information and documentation ↗</a></p>
     </section>
 
 <h2 id="audience">Which SBOM tool fits your team?</h2>
